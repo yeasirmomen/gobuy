@@ -1,0 +1,146 @@
+/* ================================
+   ADMIN UI POLISH (SAFE)
+   No logic changes
+================================ */
+
+/* Page base */
+body {
+    background: #f4f6f9;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #222;
+}
+
+/* Main container */
+.container {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border-radius: 14px;
+    border: 1px solid #e6e9ee;
+}
+
+/* Headings */
+h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+/* Inputs */
+input, select, textarea {
+    background: #fafafa;
+    border: 1px solid #dcdfe4;
+    transition: all .2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: #fff;
+    border-color: #1f6feb;
+    box-shadow: 0 0 0 3px rgba(31,111,235,.15);
+    outline: none;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    margin-top: 12px;
+    display: block;
+}
+
+/* Tags */
+.tags {
+    background: #fafafa;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #e2e5ea;
+}
+
+.tags label {
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: all .2s ease;
+}
+
+.tags input {
+    margin-right: 6px;
+}
+
+.tags label:hover {
+    background: #eaf1ff;
+    border-color: #c6dbff;
+}
+
+/* Image grid */
+.grid {
+    margin-top: 12px;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+
+/* Primary image highlight */
+.card input[type="radio"]:checked + span,
+.card input[type="radio"]:checked {
+    accent-color: #1f6feb;
+}
+
+.card label {
+    margin-top: 6px;
+    display: block;
+    font-size: 13px;
+}
+
+/* Delete button */
+.del {
+    margin-top: 6px;
+    background: linear-gradient(135deg,#ff5a5a,#d93636);
+    box-shadow: 0 6px 14px rgba(217,54,54,.25);
+}
+
+.del:hover {
+    opacity: .9;
+}
+
+/* Save button */
+.save {
+    font-size: 15px;
+    font-weight: 600;
+    background: linear-gradient(135deg,#1f6feb,#0d4fd6);
+    box-shadow: 0 10px 20px rgba(31,111,235,.35);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.save:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px rgba(31,111,235,.45);
+}
+
+/* Section separation */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    margin: 30px 0;
+}
+
+/* Header polish */
+.admin-header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 4px 10px rgba(0,0,0,.04);
+}

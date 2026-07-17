@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Login</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+/* =========================
+   Menu Style Background
+========================= */
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:"Poppins","Segoe UI",Arial,sans-serif;
+    background:#070A12;
+    overflow-x:hidden;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+/* Moving glow blobs */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.55;
+    z-index:-2;
+    animation: blobMove 10s ease-in-out infinite alternate;
+}
+
+/* Blue glow */
+body::before{
+    top:-120px;
+    left:-160px;
+    background:radial-gradient(circle, rgba(80,120,255,0.9), transparent 60%);
+}
+
+/* Purple glow */
+body::after{
+    bottom:-160px;
+    right:-200px;
+    background:radial-gradient(circle, rgba(170,90,255,0.9), transparent 60%);
+    animation-duration:12s;
+}
+
+@keyframes blobMove{
+    0%   { transform: translate(0px,0px) scale(1); }
+    50%  { transform: translate(120px,80px) scale(1.1); }
+    100% { transform: translate(-60px,120px) scale(0.95); }
+}
+
+/* Noise overlay */
+.bg-noise{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:0.06;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+/* ===== Container (Glass Premium) ===== */
+.container{
+    width:370px;
+    max-width:100%;
+    background:rgba(20,22,32,0.72);
+    border:1px solid rgba(255,255,255,0.12);
+    padding:35px 30px;
+    border-radius:18px;
+    box-shadow:0 22px 60px rgba(0,0,0,0.45);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    animation: fadeUp 0.9s ease;
+    overflow:hidden;
+}
+
+/* ===== Logo ===== */
+.logo{
+    text-align:center;
+    margin-bottom:10px;
+}
+.logo img{
+    width:70px;
+    animation: logoPop 1.2s ease;
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));
+}
+
+/* ===== Brand Title ===== */
+.brand-title{
+    text-align:center;
+    font-size:34px;
+    font-weight:800;
+    color:#ffffff;
+    margin-bottom:8px;
+    letter-spacing:1.2px;
+    animation: slideDown 0.8s ease;
+}
+
+/* ===== Login text ===== */
+h2{
+    text-align:center;
+    margin-bottom:24px;
+    color:rgba(255,255,255,0.85);
+    font-weight:500;
+}
+
+/* ===== Inputs ===== */
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.14);
+    font-size:14px;
+    transition:0.25s ease;
+    background:rgba(255,255,255,0.06);
+    color:#fff;
+}
+input::placeholder{
+    color:rgba(255,255,255,0.45);
+}
+input:focus{
+    outline:none;
+    border-color:rgba(80,120,255,0.65);
+    box-shadow:0 0 0 4px rgba(80,120,255,0.18);
+}
+
+/* ===== Button ===== */
+button{
+    width:100%;
+    padding:14px;
+    margin-top:14px;
+    background:linear-gradient(135deg, rgba(31,111,235,1), rgba(170,90,255,1));
+    color:#ffffff;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    transition:all 0.25s ease;
+}
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(31,111,235,0.22);
+    filter:brightness(1.06);
+}
+
+/* ===== Links ===== */
+.reg-link{
+    text-align:center;
+    margin-top:20px;
+    font-size:14px;
+    color:rgba(255,255,255,0.70);
+}
+.reg-link a{
+    text-decoration:none;
+    color:#ffffff;
+    font-weight:700;
+    margin:0 4px;
+}
+.reg-link a:hover{
+    text-decoration:underline;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(25px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes slideDown{
+    from{opacity:0;transform:translateY(-20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes logoPop{
+    0%{transform:scale(0.7);opacity:0;}
+    60%{transform:scale(1.1);}
+    100%{transform:scale(1);opacity:1;}
+}
+</style>
+</head>
+
+<body>
+<div class="bg-noise"></div>
+
+<div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="logo.png" alt="Go Buy Now Logo">
+    </div>
+
+    <!-- Brand -->
+    <div class="brand-title">Go Buy Now</div>
+
+    <h2>Login</h2>
+
+    <form action="login.php" method="POST">
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="reg-link">
+        Don't have an account?
+        <a href="registration.html">Register</a><br>
+        GOTO <a href="menu.php">HOMEPAGE</a>
+    </div>
+
+</div>
+
+</body>
+</html>
